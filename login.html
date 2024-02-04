@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Responsive Websites" />
+    <meta
+      name="keywords"
+      content="Responsive Website ,Login form ,Registration form ,Change Password ,popup form "
+    />
+    <meta name="author" content="Monujaan Wadde" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .home {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background-image: url("../img/back2.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .form_container {
+        position: relative;
+        max-width: 300px;
+        width: 100%;
+        top: -90px;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 101;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.1);
+        opacity: 1;
+        transition: all 0.4s ease-out;
+      }
+      .form_close {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        font-size: 25px;
+        cursor: pointer;
+        color: #ffffff;
+        background: #000000;
+        border: 2px solid #2ae84d;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding-left: 4px;
+        padding-right: 3px;
+      }
+      .form_close:hover {
+        color: #f50606;
+      }
+
+      .form_container {
+        position: relative;
+      }
+      .form_container h2 {
+        font-size: 22px;
+        color: #0b0217;
+        text-align: center;
+      }
+      .input_box {
+        position: relative;
+        margin-top: 30px;
+        width: 100%;
+        height: 40px;
+      }
+      .input_box input {
+        height: 100%;
+        width: 100%;
+        font-size: 13px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 1px 10px;
+        color: #333;
+        transition: all 0.2s ease;
+        border: 1.5px solid #aaaaaa;
+      }
+      .input_box input:focus {
+        border-color: rgb(42, 71, 232);
+      }
+      .input_box i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #707070;
+      }
+      .input_box input:focus,
+      .input_box input:focus {
+        color: #0d0d0d;
+      }
+      .input_box i.pw_hide {
+        right: 0;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .option_field {
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .form_container a {
+        color: #7d2ae8;
+        font-size: 13px;
+      }
+      .form_container a:hover {
+        text-decoration: underline;
+      }
+      .form_container .button {
+        background: #2a2ae8;
+        color: #ffffff;
+        margin-top: 30px;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 10px;
+      }
+      .login_signup {
+        font-size: 13px;
+        text-align: center;
+        margin-top: 15px;
+      }
+      .button {
+        padding: 6px 24px;
+        border: 2px solid #fff;
+        background: transparent;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .button:active {
+        transform: scale(0.98);
+      }
+      @media (max-width: 947px) {
+        .form_container {
+          position: relative;
+          max-width: 300px;
+          width: 100%;
+          top: -90px;
+          left: 50%;
+          transform: translate(-50%, 50%);
+          z-index: 101;
+          background: #fff;
+          padding: 25px;
+          border-radius: 12px;
+          box-shadow: rgba(0, 0, 0, 0.1);
+          opacity: 1;
+          transition: all 0.4s ease-out;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="home">
+      <div class="form_container">
+        <i class="uil uil-times form_close" id="formClose"></i>
+        <div class="form signup_form">
+          <form action="#">
+            <h2>Login</h2>
+
+            <div class="input_box">
+              <input type="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+              <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+
+            <div class="option_field">
+              <a href="update.html" class="forgot_pw">Forgot password?</a>
+            </div>
+
+            <button class="button">Signup Now</button>
+
+            <div class="login_signup">
+              Don't have an account? <a href="register.html">Register</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      var formCloseIcon = document.getElementById("formClose");
+      formCloseIcon.addEventListener("click", function () {
+        var formContainer = document.querySelector(".form_container");
+        formContainer.style.display = "none";
+        window.location.href = "index.html";
+      });
+
+      pwShowHide = document.querySelectorAll(".pw_hide");
+      pwShowHide.forEach((icon) => {
+        icon.addEventListener("click", () => {
+          let getPwInput = icon.parentElement.querySelector("input");
+          if (getPwInput.type === "password") {
+            getPwInput.type = "text";
+            icon.classList.replace("uil-eye-slash", "uil-eye");
+          } else {
+            getPwInput.type = "password";
+            icon.classList.replace("uil-eye", "uil-eye-slash");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Responsive Websites">
+    <meta name="keywords" content="Responsive Website ,Login form ,Registration form ,Change Password ,popup form ">
+    <meta name="author" content="Monujaan Wadde">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Ubuntu',sans-serif,'Poppins';
+        }
+        .max-width{
+            max-width: 100%;
+            padding: 0 80px;
+            margin: auto;
+        }
+        .navbar{
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            background: url('../img/color1.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .navbar.sticky{
+            padding: 15px 0;
+            background: crimson;
+        }
+        .navbar .max-width{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .logo a{
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .navbar .logo a span{
+            color: crimson;
+            transition: all 0.3s ease;
+        }
+        .navbar.sticky .logo a span{
+            color: #fff;
+        }
+        .navbar .menu li{
+            list-style: none;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .navbar .menu li a{
+            display: block;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+        .navbar .menu li a:hover{
+            color: crimson;
+        }
+        .navbar.sticky .menu li a:hover{
+            color: #fff;
+        }
+
+        /* menu btn styling */
+        .menu-btn{
+            color: #fff;
+            font-size: 23px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* home section styling */
+        .home{
+            display: flex;
+            height: 100vh;
+            color: #fff;
+            min-height: 500px;
+        }
+        .home .home-content {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .home .max-width{
+            width: 100%;
+            display: flex;
+        }
+        .home .max-width .row{
+        margin-right: 0;
+        }
+        .home .home-content .text-1{
+            font-size: 35px;
+        }
+        .home .home-content .text-2{
+            font-size: 75px;
+            font-weight: 600;
+            margin-left: -3px;
+        }
+        .home .home-content .text-3{
+            font-size: 45px;
+            margin: 5px 0;
+        }
+        .home .home-content .text-3 span{
+            color: rgb(220, 20, 23);
+            font-weight: 500;
+        }
+        .home .home-content a{
+            display: inline-block;
+            background: crimson;
+            color: #fff;
+            font-size: 25px;
+            padding: 12px 36px;
+            margin-top: 20px;
+            font-weight: 400;
+            border-radius: 6px;
+            border: 2px solid crimson;
+            transition: all 0.3s ease;
+        }
+        .home .home-content a:hover{
+            color: crimson;
+            background: none;
+        }
+
+        @media (max-width: 991px) {
+            .max-width{
+                padding: 0 50px;
+            }
+            .button{
+                display: none;
+            }
+        }
+        @media (max-width: 947px){
+            .menu-btn{
+                display: block;
+                z-index: 999;
+            }
+            .menu-btn i.active:before{
+                content: "\f00d";
+            }
+            .navbar .menu{
+                position: fixed;
+                height: 100vh;
+                width: 95%;
+                left: -100%;
+                top: 60px;
+                background: url('../img/wave1.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                text-align: center;
+                padding-top: 80px;
+                transition: all 0.3s ease;
+            }
+            .navbar .menu.active{
+                left: 0;
+            }
+            .navbar .menu li{
+                display: block;
+            }
+            .navbar .menu li a{
+                display: inline-block;
+                margin: 20px 0;
+                font-size: 18px;
+            }
+            .home .home-content .text-2{
+                font-size: 70px;
+            }
+            .home .home-content .text-3{
+                font-size: 35px;
+            }
+            .home .home-content a{
+                font-size: 23px;
+                padding: 10px 30px;
+            }
+            .max-width{
+                max-width: 930px;
+            }
+            
+        }
+
+        @media (max-width: 690px) {
+            .max-width{
+                padding: 0 23px;
+            }
+            .home .home-content .text-2{
+                font-size: 60px;
+            }
+            .home .home-content .text-3{
+                font-size: 32px;
+            }
+            .home .home-content a{
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .home .home-content .text-2{
+                font-size: 50px;
+            }
+            .home .home-content .text-3{
+                font-size: 27px;
+            }
+        }
+
+        .nav {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .nav, .nav_item {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav_logo, .nav_link
+        {
+            color: #fff;
+        }
+        .nav_logo {
+            font-size: 25px;
+        }
+        .nav_item {
+            column-gap: 25px;
+        }
+        .nav_link:hover {
+            color: #d9d9d9;
+        }
+
+        /* Home */
+        .home {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: url('../img/back1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat-x;
+            animation: animate 5s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+            z-index: 1;
+        }
+
+        @keyframes animate {
+            0% {
+               background-position-x: 0%;
+            }
+            100% {
+               background-position-x: -500px;
+            }
+        }
+
+        .home::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s ease-out;
+        }
+        .home.show::before {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        button {
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 20px;
+            border: 2px solid #fff;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 30px;
+        }
+        button:hover{
+            background: #1851ee;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Monu<span>jaan</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#services" class="menu-btn">Services</a></li>
+                <li><a href="#skills" class="menu-btn">Skills</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- home section start -->
+    <div class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Hello, my name is</div>
+                <div class="text-2">Monujaan Wadde</div>
+                <div class="text-3">
+                  And I'm a <span class="typing"></span>
+                </div>
+                <button id="exploreid">Explore More Now</a> </button>
+            </div>
+        </div>
+    </div> 
+    <script>
+        var orderNowButton = document.getElementById("exploreid");
+            orderNowButton.addEventListener("click", function() {
+            window.location.href = "../login.html";
+        });
+
+
+
+        $(document).ready(function(){
+            $('.menu-btn').click(function(){
+                $('.navbar .menu').toggleClass("active");
+                $('.menu-btn i').toggleClass("active");
+            });
+
+            var typed = new Typed(".typing", {
+                strings: ["Developer","Designer"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        });
+
+        pwShowHide = document.querySelectorAll(".pw_hide");
+        pwShowHide.forEach((icon) => {
+            icon.addEventListener("click", () => {
+                let getPwInput = icon.parentElement.querySelector("input");
+                if (getPwInput.type === "password") {
+                    getPwInput.type = "text";
+                    icon.classList.replace("uil-eye-slash", "uil-eye");
+                } else {
+                    getPwInput.type = "password";
+                    icon.classList.replace("uil-eye", "uil-eye-slash");
+                }
+            });
+        });
+    </script>   
+</body>
+</html>
